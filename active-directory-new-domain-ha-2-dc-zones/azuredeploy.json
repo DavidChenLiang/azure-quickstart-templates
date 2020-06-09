@@ -299,8 +299,9 @@
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2018-11-01",
       "name": "UpdateBDCNIC",
-      "dependsOn": [
-        "UpdateVNetDNS1"
+      "dependsOn": [	
+        "[resourceId('Microsoft.Compute/virtualMachines/extensions', variables('vmName')[0], 'CreateAdForest')]",	
+        "[resourceId('Microsoft.Compute/virtualMachines/extensions', variables('vmName')[1], 'PepareBDC')]"	
       ],
       "properties": {
         "mode": "Incremental",
